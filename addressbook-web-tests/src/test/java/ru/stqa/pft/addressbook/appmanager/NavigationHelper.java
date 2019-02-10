@@ -9,7 +9,8 @@ public class NavigationHelper extends HelperBase {
         super(wd);
     }
 
-    public void gotoGroupPage() {
-        click(By.linkText("groups"));
-    }
+    public void gotoGroupPage() { wd.findElement(By.linkText("groups")).click(); }
+    public void initUserCreation() { wd.findElement(By.linkText("add new")).click(); }
+
+
 }
