@@ -16,7 +16,7 @@ public class NavigationHelper extends HelperBase {
             click(By.linkText("groups"));
     }
 
-    public void initUserCreation() {
-        wd.findElement(By.linkText("add new")).click();
-    }
+  //  public void initUserCreation() {
+ //       wd.findElement(By.linkText("add new")).click();
+ //   }
 }

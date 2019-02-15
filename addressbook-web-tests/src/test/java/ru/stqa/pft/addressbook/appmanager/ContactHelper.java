@@ -49,6 +49,19 @@ public class ContactHelper extends HelperBase {
     public void editContactUser() {
         click(By.xpath("//img[@alt='Edit']"));
     }
+    public void initUserCreation() {
+        wd.findElement(By.linkText("add new")).click();
+    }
 
+    public void createContact(ContactData contact) {
+        initUserCreation();
+        fillContactForm(new ContactData("Max", "Bolshakov", "79214448476", "bolmaxim@gmail.com","test1"),true);
+        submitUserCreation();
+        returnToHomePage();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.xpath("//img[@alt='Edit']"));
+    }
 }
 
