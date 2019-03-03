@@ -7,9 +7,26 @@ public class ContactData {
     private int id = Integer.MAX_VALUE;
     private String firstname;
     private String lastname;
-    private String mobile;
+    private String mobilePhone;
     private String email;
+
+
+
+    private String address;
     private String group;
+    private String homePhone;
+    private String workPhone;
+    private String allPhones;
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
+    }
+
 
     public ContactData withId(int id) {
         this.id = id;
@@ -26,8 +43,8 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withMobile(String mobile) {
-        this.mobile = mobile;
+    public ContactData withMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
         return this;
     }
 
@@ -40,6 +57,23 @@ public class ContactData {
         this.group = group;
         return this;
     }
+    public ContactData withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+  //  public ContactData withMobilePhone(String mobilePhone) {
+   //     this.mobilePhone = mobilePhone;
+   //     return this;
+   // }
+    public ContactData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+        return this;
+    }
 
 
     public String getFirstname() {
@@ -50,15 +84,22 @@ public class ContactData {
         return lastname;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
     public String getEmail() {
         return email;
     }
+    public String getAddress() {
+        return address;
+    }
 
     public String getGroup() { return group; }
+    public String getHomePhone() { return homePhone; }
+    public String getWorkPhone() { return workPhone; }
+    public String address() { return address; }
+
 
     public int getId() {
         return id; }
@@ -87,4 +128,5 @@ public class ContactData {
                 ", lastname='" + lastname + '\'' +
                 '}';
     }
+
 }
