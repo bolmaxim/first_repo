@@ -1,0 +1,62 @@
+<list>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <firstname>Max 0</firstname>
+    <lastname>Bolshakov 0</lastname>
+    <mobilePhone>+79214444440</mobilePhone>
+    <email>Bolshakov0@gmail.com</email>
+    <email1>Bolshakov0@mail.com</email1>
+    <email2>Bolshakov0@me.com</email2>
+    <address>Spb 0</address>
+    <group>test 0</group>
+    <homePhone>333-33-30</homePhone>
+    <workPhone>88125555550</workPhone>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <firstname>Max 1</firstname>
+    <lastname>Bolshakov 1</lastname>
+    <mobilePhone>+79214444441</mobilePhone>
+    <email>Bolshakov1@gmail.com</email>
+    <email1>Bolshakov1@mail.com</email1>
+    <email2>Bolshakov1@me.com</email2>
+    <address>Spb 1</address>
+    <group>test 1</group>
+    <homePhone>333-33-31</homePhone>
+    <workPhone>88125555551</workPhone>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <firstname>Max 2</firstname>
+    <lastname>Bolshakov 2</lastname>
+    <mobilePhone>+79214444442</mobilePhone>
+    <email>Bolshakov2@gmail.com</email>
+    <email1>Bolshakov2@mail.com</email1>
+    <email2>Bolshakov2@me.com</email2>
+    <address>Spb 2</address>
+    <group>test 2</group>
+    <homePhone>333-33-32</homePhone>
+    <workPhone>88125555552</workPhone>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <firstname>Max 3</firstname>
+    <lastname>Bolshakov 3</lastname>
+    <mobilePhone>+79214444443</mobilePhone>
+    <email>Bolshakov3@gmail.com</email>
+    <email1>Bolshakov3@mail.com</email1>
+    <email2>Bolshakov3@me.com</email2>
+    <address>Spb 3</address>
+    <group>test 3</group>
+    <homePhone>333-33-33</homePhone>
+    <workPhone>88125555553</workPhone>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <firstname>Max 4</firstname>
+    <lastname>Bolshakov 4</lastname>
+    <mobilePhone>+79214444444</mobilePhone>
+    <email>Bolshakov4@gmail.com</email>
+    <email1>Bolshakov4@mail.com</email1>
+    <email2>Bolshakov4@me.com</email2>
+    <address>Spb 4</address>
+    <group>test 4</group>
+    <homePhone>333-33-34</homePhone>
+    <workPhone>88125555554</workPhone>
+  </ru.stqa.pft.addressbook.model.ContactData>
+</list>

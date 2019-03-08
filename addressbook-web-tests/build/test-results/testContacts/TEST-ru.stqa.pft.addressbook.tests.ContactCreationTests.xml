@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.ContactCreationTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-03-08T21:11:30" hostname="iMac.local" time="76.627">
+  <properties/>
+  <testcase name="testContactCreation[0](ContactData{id='0', firstname='Max 0', lastname='Bolshakov 0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="20.669"/>
+  <testcase name="testContactCreation[1](ContactData{id='0', firstname='Max 1', lastname='Bolshakov 1'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="11.413"/>
+  <testcase name="testContactCreation[2](ContactData{id='0', firstname='Max 2', lastname='Bolshakov 2'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="11.077"/>
+  <testcase name="testContactCreation[3](ContactData{id='0', firstname='Max 3', lastname='Bolshakov 3'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="11.172"/>
+  <testcase name="testContactCreation[4](ContactData{id='0', firstname='Max 4', lastname='Bolshakov 4'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="11.202"/>
+  <testcase name="testContactCreation2" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="11.09"/>
+  <testcase name="testCurrentDir" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="0.0"/>
+  <system-out><![CDATA[/Users/Max/Documents/GitHub/first_repo/addressbook-web-tests/.
+/Users/Max/Documents/GitHub/first_repo/addressbook-web-tests/src/test/resources/frog.png
+true
+true
+]]></system-out>
+  <system-err><![CDATA[Security framework of XStream not initialized, XStream is probably vulnerable.
+]]></system-err>
+</testsuite>
