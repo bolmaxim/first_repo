@@ -1,0 +1,62 @@
+[
+  {
+    "firstname": "Max 0",
+    "lastname": "Bolshakov 0",
+    "mobilePhone": "+79214444440",
+    "email": "Bolshakov0@gmail.com",
+    "email1": "Bolshakov0@mail.com",
+    "email2": "Bolshakov0@me.com",
+    "address": "Spb 0",
+    "group": "test",
+    "homePhone": "333-33-30",
+    "workPhone": "88125555550"
+  },
+  {
+    "firstname": "Max 1",
+    "lastname": "Bolshakov 1",
+    "mobilePhone": "+79214444441",
+    "email": "Bolshakov1@gmail.com",
+    "email1": "Bolshakov1@mail.com",
+    "email2": "Bolshakov1@me.com",
+    "address": "Spb 1",
+    "group": "test",
+    "homePhone": "333-33-31",
+    "workPhone": "88125555551"
+  },
+  {
+    "firstname": "Max 2",
+    "lastname": "Bolshakov 2",
+    "mobilePhone": "+79214444442",
+    "email": "Bolshakov2@gmail.com",
+    "email1": "Bolshakov2@mail.com",
+    "email2": "Bolshakov2@me.com",
+    "address": "Spb 2",
+    "group": "test",
+    "homePhone": "333-33-32",
+    "workPhone": "88125555552"
+  },
+  {
+    "firstname": "Max 3",
+    "lastname": "Bolshakov 3",
+    "mobilePhone": "+79214444443",
+    "email": "Bolshakov3@gmail.com",
+    "email1": "Bolshakov3@mail.com",
+    "email2": "Bolshakov3@me.com",
+    "address": "Spb 3",
+    "group": "test",
+    "homePhone": "333-33-33",
+    "workPhone": "88125555553"
+  },
+  {
+    "firstname": "Max 4",
+    "lastname": "Bolshakov 4",
+    "mobilePhone": "+79214444444",
+    "email": "Bolshakov4@gmail.com",
+    "email1": "Bolshakov4@mail.com",
+    "email2": "Bolshakov4@me.com",
+    "address": "Spb 4",
+    "group": "test",
+    "homePhone": "333-33-34",
+    "workPhone": "88125555554"
+  }
+]
