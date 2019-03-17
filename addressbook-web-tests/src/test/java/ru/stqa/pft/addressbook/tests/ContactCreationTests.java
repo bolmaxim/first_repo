@@ -54,10 +54,10 @@ public class ContactCreationTests extends TestBase {
 
     @Test (dataProvider = "validContactsFromXml")
     public void testContactCreation(ContactData contact) {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         File photo = new File("src/test/resources/frog.png");
         app.contact().create(contact.withPhoto(photo));
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
 
         assertThat(after.size(),equalTo(before.size()+1));
         assertThat(after, equalTo(
@@ -74,14 +74,14 @@ public class ContactCreationTests extends TestBase {
         System.out.println(photo.canWrite());
     }
 
-    @Test
+    @Test (enabled = false)
     public void testContactCreation2() {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData contact = new ContactData().withFirstname("Max").withLastname("Bolshakov")
                 .withMobilePhone("+79214448476").withHomePhone("444-84-76").withWorkPhone("(812)4448476")
                 .withEmail("bolmaxim@gmail.com").withGroup("test1").withAddress("Saint Petersburg");
         app.contact().create(contact);
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
 
         assertThat(after.size(),equalTo(before.size()+1));
         assertThat(after, equalTo(
