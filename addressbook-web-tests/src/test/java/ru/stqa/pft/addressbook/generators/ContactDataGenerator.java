@@ -77,7 +77,8 @@ public class ContactDataGenerator {
                     .withLastname(String.format("Bolshakov %s", i)).withMobilePhone(String.format("+7921444444%s", i))
                     .withHomePhone(String.format("333-33-3%s", i)).withWorkPhone(String.format("8812555555%s", i))
                     .withAddress(String.format("Spb %s", i)).withEmail(String.format("Bolshakov%s@gmail.com", i))
-                    .withGroup(String.format("test %s", i)).withEmail1(String.format("Bolshakov%s@mail.com", i))
+           //         .withGroup(String.format("test %s", i))
+                    .withEmail1(String.format("Bolshakov%s@mail.com", i))
                     .withEmail2(String.format("Bolshakov%s@me.com", i)));
         }
         return contacts;

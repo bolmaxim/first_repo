@@ -2,11 +2,15 @@ package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table (name = "addressbook")
@@ -43,10 +47,6 @@ public class ContactData {
     @Type(type = "text")
     @Column (name = "address")
     private String address;
-
-    @Expose
-    @Transient
-    private String group;
     @Expose
     @Type(type = "text")
     @Column (name = "home")
@@ -62,6 +62,12 @@ public class ContactData {
     @Type(type = "text")
     @Column (name = "photo")
     private String photo;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"),inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
+
     public File getPhoto() {
         if (photo == null) {
             return null;
@@ -90,6 +96,7 @@ public class ContactData {
         this.id = id;
         return this;
     }
+
 
     public ContactData withFirstname(String firstname) {
         this.firstname = firstname;
@@ -130,11 +137,6 @@ public class ContactData {
         return this;
     }
 
-
-    public ContactData withGroup(String group) {
-        this.group = group;
-        return this;
-    }
     public ContactData withHomePhone(String homePhone) {
         this.homePhone = homePhone;
         return this;
@@ -144,10 +146,7 @@ public class ContactData {
         this.address = address;
         return this;
     }
-  //  public ContactData withMobilePhone(String mobilePhone) {
-   //     this.mobilePhone = mobilePhone;
-   //     return this;
-   // }
+
     public ContactData withWorkPhone(String workPhone) {
         this.workPhone = workPhone;
         return this;
@@ -173,8 +172,6 @@ public class ContactData {
     public String getEmail2() { return email2; }
 
     public String getAddress() { return address; }
-
-    public String getGroup() { return group; }
 
     public String getHomePhone() { return homePhone; }
 
@@ -213,5 +210,14 @@ public class ContactData {
 
     public int getId() { return id; }
 
+
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
+
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
+    }
 
 }
