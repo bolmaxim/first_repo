@@ -67,6 +67,7 @@ public class ContactCreationTests extends TestBase {
         Groups groups = app.db().groups();
         Contacts before = app.db().contacts();
         File photo = new File("src/test/resources/frog.png");
+
         app.contact().create(contact.withPhoto(photo).inGroup(groups.iterator().next()));
         Contacts after = app.db().contacts();
 

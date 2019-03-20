@@ -46,11 +46,11 @@ public class ContactHelper extends HelperBase {
 
         if (creation) {
             if (contactData.getGroups().size() > 0) {
-      //          Assert.assertTrue(contactData.getGroups().size() == 1);
+              Assert.assertTrue(contactData.getGroups().size() == 1);
                 new Select(wd.findElement(By.name("new_group")))
                         .selectByVisibleText(contactData.getGroups().iterator().next().getName());
             } else {
-  //              Assert.assertFalse(isElementPresent(By.name("new_group")));
+       //         Assert.assertFalse(isElementPresent(By.name("new_group")));
             }
         }
     }
@@ -75,7 +75,7 @@ public class ContactHelper extends HelperBase {
         }
 
         public void initGroupDeletion(ContactData contact, GroupData group) {
-        wd.findElement(By.name("group")).click();
+      //  wd.findElement(By.name("group")).click();
         new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
         wd.findElement(By.id(+ contact.getId() + "")).click();
         wd.findElement(By.name("remove")).click();

@@ -11,17 +11,15 @@ import ru.stqa.pft.addressbook.model.Groups;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SubList;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 
 public class ContactWithGroupTests extends TestBase {
 
-    private SubList<Object> contactWithGroup;
-
-    @BeforeMethod
+    @BeforeMethod (enabled = true)
     public void ensurePreconditions() {
         if (app.db().contacts().size() == 0) {
             app.contact().create(new ContactData().withFirstname("Max").withLastname("Bolshakov").withMobilePhone("79214448476")
@@ -35,64 +33,80 @@ public class ContactWithGroupTests extends TestBase {
 
         Contacts contacts = app.db().contacts();
         Groups groups = app.db().groups();
-        //         if (contact.getGroups().toString() != "[]") {
-        //              System.out.println(contact.getGroups());
-        //              continue;
-        //           }
-        //              System.out.println(contact);
-        //              System.out.println(contact.getGroups());
-        for ( ContactData contact : contacts )
-            if (contact.getGroups().size() > 0) {
+        ArrayList<ContactData> contactWithGroup = new ArrayList<>();
+
+        for (ContactData contact : contacts) {
+            if (contact.getGroups().toString() != "[]") {
                 contactWithGroup.add(contact);
             }
+        }
         if (contactWithGroup.size() == 0) {
+            app.contact().returnToHomePage();
             app.contact().initGroupAssign(contacts.iterator().next().getId(), groups.iterator().next());
         }
 
-    }
-        @Test
-        public void testContactGroupAssign () {
-            Contacts contacts = app.db().contacts();
-            Groups groups = app.db().groups();
-            app.contact().initGroupAssign(contacts.iterator().next().getId(), groups.iterator().next());
-        }
+        ArrayList<GroupData> groupWithContact = new ArrayList<>();
 
-
-        @Test
-        public void testContactGroupDeletion () {
-            Contacts contacts = app.db().contacts();
-            Groups groups = app.db().groups();
- //          Contacts getContact = app.db().getContactInfo();
-    //        System.out.println(getContact);
-            for ( ContactData contact : contacts ) {
-    //            if (contact.getGroups().toString() != "[]") {
-    //                System.out.println(contact.getGroups());
-    //            }
-
-                if (contact.getGroups().size() == 0) {
-                    System.out.println(contact.getGroups());
-                }
-  //              System.out.println(contact);
-  //              System.out.println(contact.getGroups());
+        for (GroupData group : groups) {
+            if (group.getContacts().toString() != "[]") {
+                groupWithContact.add(group);
             }
- //           for ( ContactData contact : contacts ) {
-  //              System.out.println(contact);
- ////               System.out.println(contact.getGroups());
- //           }
-  //          app.contact().initGroupDeletion(contacts.iterator().next(),groups.iterator().next());
-    //        for (ContactData contact : contacts) {
-    //            for (GroupData group : groups)
-    //        }
-      //      (contact.getGroups().size() != 0) {
-       //         System.out.println(contact);
-       //         System.out.println(contact.getGroups());
-        //    }
-            //     System.out.println(contactData.inGroup(contactData.getGroups().iterator().next()));
-            //         ContactData modifiedContact = contacts.iterator().next();
-            //         app.contact().initGroupDeletion(modifiedContact.getId(),contactData.getGroups().iterator().next().toString());
-            //        System.out.println(groups.iterator().next().getName());
-            //     System.out.println(contactData.inGroup(groups.iterator().next()).toString());
-
+        }
+        if (groupWithContact.size() == 0) {
+            app.goTo().groupPage();
+            app.group().create(new GroupData().withName("test9"));
         }
 
     }
+
+    @Test
+    public void testContactGroupAssign() {
+        Contacts contacts = app.db().contacts();
+        Groups groups = app.db().groups();
+        for (ContactData contact : contacts) {
+            if (contact.getGroups().toString() == "[]") {
+                app.contact().initGroupAssign(contacts.iterator().next().getId(), groups.iterator().next());
+            }
+        }
+   //     assertThat(contacts.iterator().next(),equalTo());
+    }
+
+
+    @Test
+    public void testContactGroupDeletion() {
+        Contacts contacts = app.db().contacts();
+        Groups groups = app.db().groups();
+        ArrayList<ContactData> ContactWithGroupBefore = new ArrayList<>();
+        ArrayList<ContactData> ContactWithGroupAfter = new ArrayList<>();
+
+        for (ContactData contact : contacts) {
+            if (contact.getGroups().toString() != "[]") {
+                ContactWithGroupBefore.add(contact);
+            }
+        }
+
+        for (ContactData contact : contacts) {
+            if (contact.getGroups().toString() != "[]") {
+                ContactWithGroupAfter.add(contact);
+                app.contact().initGroupDeletion(contacts.iterator().next(), contact.getGroups().iterator().next());
+            }
+        }
+   //lk    assertThat(ContactWithGroupBefore,);
+    }
+
+    @Test
+    public void testContactWithGroups() {
+        Contacts contacts = app.db().contacts();
+        Groups groups = app.db().groups();
+        System.out.println(groups.iterator().next().getContacts().size());
+        System.out.println(contacts.iterator().next().getGroups().size());
+
+   //     for (ContactData contact : contacts) {
+  //          if (contact.getGroups().toString() != "[]") {
+   //             System.out.println(contact.getGroups().iterator().next());
+   //             app.contact().initGroupDeletion(contacts.iterator().next(), contact.getGroups().iterator().next());
+   //         }
+  //      }
+    }
+
+}
