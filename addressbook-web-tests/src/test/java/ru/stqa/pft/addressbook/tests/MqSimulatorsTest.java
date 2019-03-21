@@ -38,7 +38,7 @@ public class MqSimulatorsTest extends SimData{
     }
 
 
-    @Test
+    @Test(enabled = false)
     public void readSimData(SimData simData) {
         System.out.println(simData.getSimPropertyNew());
         System.out.println(simData.getsimValueNew());

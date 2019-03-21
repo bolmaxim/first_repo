@@ -41,17 +41,17 @@ public class ContactCreationTests extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validContactsFromJson() throws IOException {
-       try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))) {
-           String json = "";
-           String line = reader.readLine();
-           while (line != null) {
-               json += line;
-               line = reader.readLine();
-           }
-           Gson gson = new Gson();
-           List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType()); // list ContactData.class
-           return contacts.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
-       }
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))) {
+            String json = "";
+            String line = reader.readLine();
+            while (line != null) {
+                json += line;
+                line = reader.readLine();
+            }
+            Gson gson = new Gson();
+            List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType()); // list ContactData.class
+            return contacts.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+        }
     }
 
     @BeforeMethod
@@ -62,7 +62,7 @@ public class ContactCreationTests extends TestBase {
         }
     }
 
-    @Test (dataProvider = "validContactsFromXml")
+    @Test (dataProvider = "validContactsFromJson")
     public void testContactCreation(ContactData contact) {
         Groups groups = app.db().groups();
         Contacts before = app.db().contacts();
@@ -93,7 +93,7 @@ public class ContactCreationTests extends TestBase {
         ContactData contact = new ContactData().withFirstname("Max").withLastname("Bolshakov")
                 .withMobilePhone("+79214448476").withHomePhone("444-84-76").withWorkPhone("(812)4448476")
                 .withEmail("bolmaxim@gmail.com")
-            //    .withGroups("test1")
+                //    .withGroups("test1")
                 .withAddress("Saint Petersburg");
         app.contact().create(contact);
         Contacts after = app.db().contacts();

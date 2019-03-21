@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.hibernate.Session;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
@@ -19,8 +20,8 @@ import static org.testng.Assert.assertNotEquals;
 
 public class ContactWithGroupTests extends TestBase {
 
-    @BeforeMethod (enabled = true)
-    public void ensurePreconditions() {
+    @BeforeTest(enabled = false)
+    public void ensurePreconditionsForAdding() {
         if (app.db().contacts().size() == 0) {
             app.contact().create(new ContactData().withFirstname("Max").withLastname("Bolshakov").withMobilePhone("79214448476")
                     .withHomePhone("123").withWorkPhone("333111").withEmail("bolmaxim@gmail.com")
@@ -31,6 +32,11 @@ public class ContactWithGroupTests extends TestBase {
             app.group().create(new GroupData().withName("test1"));
         }
 
+        if (app.db().contacts().iterator().next().getGroups().size() == app.db().groups().size()) {
+            app.goTo().groupPage();
+            app.group().create(new GroupData().withName("test1").withHeader("test2").withFooter("test3"));
+        }
+/*
         Contacts contacts = app.db().contacts();
         Groups groups = app.db().groups();
         ArrayList<ContactData> contactWithGroup = new ArrayList<>();
@@ -56,45 +62,51 @@ public class ContactWithGroupTests extends TestBase {
             app.goTo().groupPage();
             app.group().create(new GroupData().withName("test9"));
         }
-
+*/
     }
 
-    @Test
+    @Test(enabled = false)
     public void testContactGroupAssign() {
-        Contacts contacts = app.db().contacts();
-        Groups groups = app.db().groups();
-        for (ContactData contact : contacts) {
-            if (contact.getGroups().toString() == "[]") {
-                app.contact().initGroupAssign(contacts.iterator().next().getId(), groups.iterator().next());
-            }
+             Contacts contactsBefore = app.db().contacts();
+        Groups groupList = app.db().groups();
+        ContactData selectedContact = contactsBefore.iterator().next();
+        GroupData toGroup = groupList.iterator().next();
+        app.contact().initGroupAssign(selectedContact.getId(), toGroup);
+        Contacts contactsAfter = app.db().contacts();
+        assertThat(contactsAfter.iterator().next().getGroups().withAdded(groupList.iterator().next()), equalTo(contactsBefore.iterator().next().getGroups()));
+        verifyContactListInUI();
+
+    }
+
+    @BeforeTest (enabled = false)
+    public void ensurePreconditionsForDeletion() {
+
+        if (app.db().groups().iterator().next().getContacts().size() == 0) {
+            Groups groupList = app.db().groups();
+            GroupData toGroup = groupList.iterator().next();
+            Contacts contactsBefore = app.db().contacts();
+            ContactData selectedContact = contactsBefore.iterator().next();
+            app.contact().initGroupAssign(selectedContact.getId(), toGroup);
         }
-   //     assertThat(contacts.iterator().next(),equalTo());
+
     }
 
 
-    @Test
+    @Test(enabled = false)
     public void testContactGroupDeletion() {
-        Contacts contacts = app.db().contacts();
-        Groups groups = app.db().groups();
-        ArrayList<ContactData> ContactWithGroupBefore = new ArrayList<>();
-        ArrayList<ContactData> ContactWithGroupAfter = new ArrayList<>();
-
-        for (ContactData contact : contacts) {
-            if (contact.getGroups().toString() != "[]") {
-                ContactWithGroupBefore.add(contact);
-            }
-        }
-
-        for (ContactData contact : contacts) {
-            if (contact.getGroups().toString() != "[]") {
-                ContactWithGroupAfter.add(contact);
-                app.contact().initGroupDeletion(contacts.iterator().next(), contact.getGroups().iterator().next());
-            }
-        }
-   //lk    assertThat(ContactWithGroupBefore,);
+        app.contact().returnToHomePage();
+        Contacts contactsBefore = app.db().contacts();
+        Groups groupList = app.db().groups();
+        ContactData selectedContact = contactsBefore.iterator().next();
+        GroupData fromGroup = groupList.iterator().next();
+        app.contact().initGroupDeletion(selectedContact, fromGroup);
+        Contacts contactsAfter = app.db().contacts();
+        assertThat(contactsAfter.iterator().next().getGroups().without(groupList.iterator().next()), equalTo(contactsBefore.iterator().next().getGroups()));
+        app.contact().returnToHomePage();
+        verifyContactListInUI();
     }
 
-    @Test
+    @Test(enabled = false)
     public void testContactWithGroups() {
         Contacts contacts = app.db().contacts();
         Groups groups = app.db().groups();

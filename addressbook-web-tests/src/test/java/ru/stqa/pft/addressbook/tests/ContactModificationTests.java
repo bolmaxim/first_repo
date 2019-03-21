@@ -23,7 +23,8 @@ public class ContactModificationTests extends TestBase {
     }
 
     @Test
-    public void testContactEdit() {
+    public void testContactEdit() throws InterruptedException {
+        app.contact().returnToHomePage();
         Contacts before = app.db().contacts();
         ContactData modifiedContact = before.iterator().next();
         File photo = new File("src/test/resources/frog.png");
@@ -32,7 +33,7 @@ public class ContactModificationTests extends TestBase {
                 .withEmail1("123").withEmail2("321").withAddress("Spb")
                 //       .withGroup("test1")
                 .withPhoto(photo);
-        app.contact().modify(modifiedContact.withPhoto(photo));
+     //   app.contact().modify(modifiedContact.withPhoto(photo));
         app.contact().modify(contact.withPhoto(photo));
 
         Contacts after = app.db().contacts();
