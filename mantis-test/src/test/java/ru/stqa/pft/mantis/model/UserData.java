@@ -1,7 +1,7 @@
 package ru.stqa.pft.mantis.model;
 
 import com.google.gson.annotations.Expose;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
