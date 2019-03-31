@@ -20,6 +20,7 @@ public class SoapTests extends TestBase {
         System.out.println(projects.size());
         for (Project project : projects) {
             System.out.println(project.getName());
+
         }
     }
 

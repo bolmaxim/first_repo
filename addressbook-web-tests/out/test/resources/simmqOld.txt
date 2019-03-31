@@ -1,6 +1,0 @@
-mqmanager = adat01
-web.adminLogin = admin
-web.adminPassword = secret
-mqmanager.new = adat01.new
-web.adminLogin.new = admin.new
-web.adminPassword.new = secret.new

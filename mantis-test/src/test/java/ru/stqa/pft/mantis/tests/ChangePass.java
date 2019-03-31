@@ -9,7 +9,10 @@ import ru.stqa.pft.mantis.model.UserData;
 import ru.stqa.pft.mantis.model.Users;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.rmi.RemoteException;
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
@@ -19,8 +22,9 @@ public class ChangePass extends TestBase {
 
 
     @BeforeMethod
-    public void startMailServer() {
+    public void startMailServer() throws RemoteException, ServiceException, MalformedURLException {
         app.mail().start();
+        skipIfNotFixed(Integer.valueOf(app.getProperty("web.notFixedBug")));
     }
 
     @Test

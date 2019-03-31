@@ -1,3 +1,0 @@
-mqmanager = adat01
-web.adminLogin = admin
-web.adminPassword = secret
