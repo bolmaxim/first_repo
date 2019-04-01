@@ -16,7 +16,7 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestTests extends TestBase {
+public class RestTests extends TestBase{
 
     @BeforeMethod
 
@@ -40,7 +40,7 @@ public class RestTests extends TestBase {
 
     }
     private Set<Issue> getIssues() throws IOException {
-        String json = getExecutor().execute(Request.Get("http://bugify.stqa.ru/api/issues.json?limit=300")).returnContent().asString();
+        String json = getExecutor().execute(Request.Get("http://bugify.stqa.ru/api/issues.json?limit=1000")).returnContent().asString();
         JsonElement parsed = new JsonParser().parse(json);
         JsonElement issues = parsed.getAsJsonObject().get("issues");
         return new Gson().fromJson(issues, new TypeToken<Set<Issue>>(){}.getType());
