@@ -7,7 +7,6 @@
     <email1>Bolshakov0@mail.com</email1>
     <email2>Bolshakov0@me.com</email2>
     <address>Spb 0</address>
-    <group>test 0</group>
     <homePhone>333-33-30</homePhone>
     <workPhone>88125555550</workPhone>
   </ru.stqa.pft.addressbook.model.ContactData>
@@ -19,7 +18,6 @@
     <email1>Bolshakov1@mail.com</email1>
     <email2>Bolshakov1@me.com</email2>
     <address>Spb 1</address>
-    <group>test 1</group>
     <homePhone>333-33-31</homePhone>
     <workPhone>88125555551</workPhone>
   </ru.stqa.pft.addressbook.model.ContactData>
@@ -31,7 +29,6 @@
     <email1>Bolshakov2@mail.com</email1>
     <email2>Bolshakov2@me.com</email2>
     <address>Spb 2</address>
-    <group>test 2</group>
     <homePhone>333-33-32</homePhone>
     <workPhone>88125555552</workPhone>
   </ru.stqa.pft.addressbook.model.ContactData>
@@ -43,7 +40,6 @@
     <email1>Bolshakov3@mail.com</email1>
     <email2>Bolshakov3@me.com</email2>
     <address>Spb 3</address>
-    <group>test 3</group>
     <homePhone>333-33-33</homePhone>
     <workPhone>88125555553</workPhone>
   </ru.stqa.pft.addressbook.model.ContactData>
@@ -55,7 +51,6 @@
     <email1>Bolshakov4@mail.com</email1>
     <email2>Bolshakov4@me.com</email2>
     <address>Spb 4</address>
-    <group>test 4</group>
     <homePhone>333-33-34</homePhone>
     <workPhone>88125555554</workPhone>
   </ru.stqa.pft.addressbook.model.ContactData>
